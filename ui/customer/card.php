@@ -69,7 +69,7 @@
                 </div>
                 <!-- <script src="confirmDialog.js"></script> -->
                 <?php echo "
-                <button id='button' role='button' type='submit' style='width: 30rem; height: 3rem;border-radius: 12px;background-color: #D1202D; color: white; font-weight: bold;'>
+                <button onclick='confirmInput()' id='button' role='button' type='submit' style='width: 30rem; height: 3rem;border-radius: 12px;background-color: #D1202D; color: white; font-weight: bold;'>
                 Submit
                 </button>
                 " ?>
@@ -90,19 +90,23 @@
             $('#redux').eraser({
                 progressFunction: function(p) {
                     $('#progress').html(Math.round(p * 100) + '%');
-
                 }
-
             });
-            // $('#robot').eraser({
-
-            //     completeRatio: 165,
-            //     completeFunction: progress console.log('heaheang');
-
-            // });
-
         });
+    </script>
+    <script>
+        <?php 
+        // $name =$_REQUEST['username'];
+        // $identityId = $_REQUEST['identityId']
+        ?>
 
+        function confirmInput(){
+            // var result = confirm("Is your name /'<?php $name ?> /', ID: /'<?php $identityId ?>/' ")
+            var result = confirm("Is the input correct?")
+            if(result = false){
+                event.preventDefault();
+            }
+        }
     </script>
 </body>
 

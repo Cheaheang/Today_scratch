@@ -26,9 +26,13 @@ if ($conn === false) {
                         <input name="pinCode" id="pinCode" style="padding: 12px; border-radius: 12px; width: 20rem;margin: 0;" type="text">
                     </div>
                     <div style="padding: 12px;">
-
+<div>
+    <p id="confirmPinCode" style="color: red;">
+           
+    </p>
+</div>
                     </div>
-                        <button type="submit" style="width: 30rem; height: 3rem;border-radius: 12px;color: white; font-weight: bold;; background-color: #D1202D;">
+                        <button onclick='confirmInput()' type="submit" style="width: 30rem; height: 3rem;border-radius: 12px;color: white; font-weight: bold;; background-color: #D1202D;">
                         Submit
                     </button>
                 </form>
@@ -38,6 +42,7 @@ if ($conn === false) {
         </div>
  
     </div>
-    
+   <script src="app.js"></script>
+   
 </body>
 </html>

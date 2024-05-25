@@ -74,9 +74,10 @@
                         </tr>
                         <tr>
 
-                            <th scope="col" colspan="3">No.</th>
-                            <th scope="col" colspan="3">Pin-code</th>
-                            <th scope="col" colspan="3">Option</th>
+                            <th scope="col" colspan="4">No.</th>
+                            <th scope="col" colspan="4">Pin-code</th>
+                            <th scope="col" colspan="4">Reward</th>
+                            <th scope="col" colspan="4">Option</th>
 
                         </tr>
                         <tr class="table-primary">
@@ -87,10 +88,11 @@
                                 while ($row = $result->fetch_assoc()) {
                             ?>
                         <tr>
-                            <td colspan="3" style="vertical-align: center;"><?php echo $no;
+                            <td colspan="4" style="vertical-align: center;"><?php echo $no;
                                                                             $no++ ?></td>
-                            <td colspan="3"><?php echo $row["pincode"]; ?></td>
-                            <td colspan="3">
+                            <td colspan="4"><?php echo $row["pincode"]; ?></td>
+                            <td colspan="4"><?php echo $row["reward"]; ?></td>
+                            <td colspan="4">
                                 <?php
                                     echo
                                     "
@@ -131,7 +133,7 @@
                         <th scope="col" colspan="5">No.</th>
                         <th scope="col" colspan="5">Pin Code</th>
                         <th scope="col" colspan="5">Name</th>
-                        <th scope="col" colspan="5">Identity ID</th>
+                        <th scope="col" colspan="5">Customer ID</th>
                         <th scope="col" colspan="5">Reward</th>
 
                     </tr>
@@ -160,7 +162,7 @@
 
         </div>
     </div>
-</div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 </body>
