@@ -11,17 +11,16 @@ if ($conn === false) {
 
 
 
- require_once(__DIR__ . '/function.php');
+
 $UserInput = $_REQUEST["pinCode"];
 $result = $conn->query("SELECT * FROM `user`");
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_assoc()) {
         if ($UserInput == $row["pinCode"] && $row["onePass"] == '1') {
             return header("location: ./card.php?userInput=$UserInput");
-        }
     }
 }
-$func = new Functions();
-$func->setStatus('not');
-$func->getStatus();
-header("location: ./pinCode.php");
+}
+$error = 'Pin number already been used, Please try other Pin number';
+header("location: ./pinCode.php?error=$error");
+exit();

@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Reward</title>
     <link rel="stylesheet" href="./card.css">
+    <link rel="icon" href="../img/TODAY-LOGO.png">
 </head>
 <style>
 </style>
@@ -18,13 +19,6 @@
     } else {
         echo ("");
     }
-
-    // if(!$row){
-    //     die("error get data");
-    // }
-
-    // echo "<h1 id='robot' > $reward</h1>";
-
 
     ?>
     <div style="width: 40rem;height: 40rem;background-color: white;display: flex;flex-direction: column;justify-content: center;align-items: center;">
@@ -50,10 +44,6 @@
                             <?php
                             $code  = $_GET['userInput'];
                             $reward;
-                            // $name = '';
-                            // $id ='';
-                            // $name = $_REQUEST['username'];
-                            // $id = $_REQUEST['identityId'];
                             $result = $conn->query("SELECT * FROM `user` WHERE pinCode = $code");
                             $row = $result->fetch_assoc();
                             $pinCode = $row["pinCode"];
@@ -67,7 +57,6 @@
                 <div style="padding-top: 21px;">
 
                 </div>
-                <!-- <script src="confirmDialog.js"></script> -->
                 <?php echo "
                 <button onclick='confirmInput()' id='button' role='button' type='submit' style='width: 30rem; height: 3rem;border-radius: 12px;background-color: #D1202D; color: white; font-weight: bold;'>
                 Submit
@@ -75,7 +64,6 @@
                 " ?>
             </form>
         </div>
-        <!-- <canvas id="custom_canvas"></canvas> -->
 
 
     </div>

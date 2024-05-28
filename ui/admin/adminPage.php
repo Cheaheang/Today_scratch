@@ -4,16 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Admin</title>
     <link href="../css/input.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./activate.css">
 
+    <link rel="icon" href="../img/TODAY-LOGO.png">
 </head>
 
 <body style="background-color:darkgray ; display:flex; align-content: center; justify-content: center; ">
     <?php
-    // include("../php/conn.php") 
     $hostname = "localhost";
     $username = "root";
     $password = "";
