@@ -82,7 +82,7 @@
                         </tr>
                         <tr class="table-primary">
                             <?php
-                            $result = $conn->query("SELECT * FROM `pin-code` ORDER BY pincode ASC");
+                            $result = $conn->query("SELECT * FROM `pin-code` ");
                             if ($result->num_rows > 0) {
                                 $no = 1;
                                 while ($row = $result->fetch_assoc()) {
