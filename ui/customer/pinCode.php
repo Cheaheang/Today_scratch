@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
-    
+
 <body style="background-color:darkgray ; display:flex; align-content: center; justify-content: center; ">
-<?php
-$conn = mysqli_connect("localhost", "root", "", "scratcher");
-if ($conn === false) {
-    die("ERROR: Could not connect" . mysqli_connect_error());
-} else {
-    echo ("");
-}
-?>
+    <?php
+    $conn = mysqli_connect("localhost", "root", "", "scratcher");
+    if ($conn === false) {
+        die("ERROR: Could not connect" . mysqli_connect_error());
+    } else {
+        echo ("");
+    }
+    ?>
     <div>
         <div style="width: 40rem;height: 40rem;background-color: white;display: flex;align-items: center;flex-direction: column;">
             <img style="height: 20% ;width: 40%;padding: 20px;" src="../img/TODAY-LOGO.png" alt="">
@@ -23,26 +24,39 @@ if ($conn === false) {
                     <div style="display: flex;align-items: center;">
 
                         <p style="font-size: 21px ;margin-right: 12px;">Pin Number: </p>
-                        <input name="pinCode" id="pinCode" style="padding: 12px; border-radius: 12px; width: 20rem;margin: 0;" type="text">
+                        <input name="pinCode" required id="pinCode" style="padding: 12px; border-radius: 12px; width: 20rem;margin: 0;" type="text">
                     </div>
                     <div style="padding: 12px;">
-<div>
-    <p id="confirmPinCode" style="color: red;">
-           
-    </p>
-</div>
+                        <div>
+
+                            <?php
+                            // include('function.php');
+                            require_once(__DIR__ . '/function.php');
+
+                            $func = new Functions();
+                            $result = $func->getStatus() == 'knot' ?
+                                "<p style='color: #D1202D;'>Pin code already been used, Please try other Pin code</p>" : "";
+                            echo $result;
+                            //                         if ($func->getStatus()) {
+                            //                             echo "
+                            // <p style='color: #D1202D;'>Pin code already been used, Please try other Pin code</p>
+                            //     ";
+                            //                         }
+                            ?>
+                        </div>
                     </div>
-                        <button onclick='confirmInput()' type="submit" style="width: 30rem; height: 3rem;border-radius: 12px;color: white; font-weight: bold;; background-color: #D1202D;">
+                    <button onclick='confirmInput()' type="submit" style="width: 30rem; height: 3rem;border-radius: 12px;color: white; font-weight: bold;; background-color: #D1202D;">
                         Submit
                     </button>
                 </form>
             </div>
 
-            
+
         </div>
- 
+
     </div>
-   <script src="app.js"></script>
-   
+    <script src="app.js"></script>
+
 </body>
+
 </html>
