@@ -96,7 +96,7 @@
                                 <?php
                                     echo
                                     "
-                                <button class='deleteButton'> 
+                                <button class='activeButton'> 
                                 <a href='./activate.php?pincode=$row[pincode]&reward=$row[reward]' style='color: white;background-color: red;padding:0px;
                                 text-decoration: none;'> 
                                 Activate

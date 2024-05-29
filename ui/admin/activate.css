@@ -1,4 +1,10 @@
+.activeButton{
+    background-color: red;
+    border-radius: 12px;
+    padding: 4px;
+    margin: 4px;
 
+}
 .table{
     margin: 24px;
 }
