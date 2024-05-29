@@ -19,7 +19,7 @@
     }
     ?>
     <div>
-        <div style="width: 100%;height: 40rem;background-color: white;display: flex;align-items: center;flex-direction: column;">
+        <div style="overflow-x: hidden;width: 100%;height: 40rem;background-color: white;display: flex;align-items: center;flex-direction: column;">
             <img style="height: 20% ;width: 60%;padding: 20px;" src="../img/TODAY-LOGO.png" alt="">
             <div style="display: flex;">
                 <form action="./checkInput.php" method="post" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">

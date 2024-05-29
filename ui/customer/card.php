@@ -40,7 +40,7 @@
 
                     <span class="container">
                         <img id="redux" src="../img/sratcher.jpg" />
-                        <p id="robot" style="display: flex; align-items: center ;  justify-content: center;font-size:100px ;">
+                        <p id="robot" style="display: flex; align-items: center ;  justify-content: center;font-size:50px ;">
                             <?php
                             $code  = $_GET['userInput'];
                             $reward;
@@ -49,7 +49,7 @@
                             $pinCode = $row["pinCode"];
                             $reward = $row['reward'];
 
-                            echo $reward . "$";
+                            echo $reward . " Bandwidth";
                             ?>
                         </p>
                     </span>

@@ -37,14 +37,14 @@ canvas {
 .container {
   position: relative;
   display: flex;
-  width: 233px;
+  width: 333px;
   height: 150px;
   padding: 12px;
   border-radius: 12px;
 }
 
 #robot {
-  width: 233px;
+  width: 333px;
   height: 60px;
   position: absolute;
   bottom: 1px;
@@ -62,7 +62,7 @@ canvas {
 
 #redux {
   /* top: 15px; */
-  width: 233px;
+  width: 333px;
   height: 150px;
   position: absolute; 
   top: 32px;
