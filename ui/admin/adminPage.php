@@ -8,7 +8,7 @@
     <link href="../css/input.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="./activate.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../img/TODAY-LOGO.png">
 </head>
 
@@ -32,7 +32,7 @@
             <h1 style="padding: 12px;">AdminPage</h1>
             <div style="display: flex;">
                 <form action="generate.php" method="POST">
-                    <div style="display: flex;align-items: center;">
+                    <div class="md" style="display: flex; align-items: center;">
                         <div style="margin-right: 12px;display: flex;">
 
                             <p style="font-size: 16px ;margin-right: 12px;">Reward : </p>
@@ -55,7 +55,7 @@
 
             </div>
             <div style="padding: 12px;"> </div>
-            <button type="submit" style="width: 30rem; height: 3rem;border-radius: 12px; background-color: #D1202D;color: white;font-weight: bold;">
+            <button type="submit" class="col-sm" style="width: 30rem; height: 3rem;border-radius: 12px; background-color: #D1202D;color: white;font-weight: bold;">
                 <a href="./generate.php?reward"></a>
                 Generate code
             </button>
@@ -64,7 +64,7 @@
             <div style="height: 3rem;"> </div>
             <div class="table-responsive">
                 <table class="table" style="width: 30rem;">
-                    <thead class="table-danger">
+                    <thead class="table-danger col-sm-6">
                         <tr>
                             <h2>
 

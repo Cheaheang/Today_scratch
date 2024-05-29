@@ -22,7 +22,7 @@
 
     ?>
     <div style="width: 40rem;height: 40rem;background-color: white;display: flex;flex-direction: column;justify-content: center;align-items: center;">
-        <img style="height: 20% ;width: 40%;padding: 20px;" src='../img/TODAY-LOGO.png' alt="">
+        <img style="height: 20% ;width: 50%;padding: 20px;" src='../img/TODAY-LOGO.png' alt="">
         <div style="display: flex;">
             <?php
             $code = $_GET['userInput']
@@ -30,10 +30,10 @@
             <form action=<?php echo "update.php?pincode=$code" ?> method="post" style="display: flex; justify-content: center; flex-direction: column; align-items: center;">
                 <div>
                     <p style="font-size: 21px ;margin-right: 12px;">Name : </p>
-                    <input name="username" required id="username" style="padding: 12px; border-radius: 12px; width: 20rem;margin: 0;" type="text">
+                    <input name="username" required id="username" style="padding: 12px; border-radius: 12px; width: 90%;margin: 0;" type="text">
 
                     <p style="font-size: 21px ;margin-right: 12px;">Identity Number : </p>
-                    <input name="identityId" required id="identityId" maxlength="9" style="padding: 12px; border-radius: 12px; width: 20rem;margin: 0;" type="text">
+                    <input name="identityId" required id="identityId" maxlength="9" style="padding: 12px; border-radius: 12px; width: 90%;margin: 0;" type="text">
                 </div>
                
                 <div>
@@ -58,7 +58,7 @@
 
                 </div>
                 <?php echo "
-                <button onclick='confirmInput()' id='button' role='button' type='submit' style='width: 30rem; height: 3rem;border-radius: 12px;background-color: #D1202D; color: white; font-weight: bold;'>
+                <button onclick='confirmInput()' id='button' role='button' type='submit' style='width: 90%; height: 3rem;border-radius: 12px;background-color: #D1202D; color: white; font-weight: bold;'>
                 Submit
                 </button>
                 " ?>
