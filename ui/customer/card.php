@@ -35,23 +35,37 @@
                     <p style="font-size: 21px ;margin-right: 12px;">Identity Number : </p>
                     <input name="identityId" required id="identityId" maxlength="9" style="padding: 12px; border-radius: 12px; width: 90%;margin: 0;" type="text">
                 </div>
-               
+
                 <div>
 
                     <span class="container">
-                        <img id="redux" src="../img/sratcher.jpg" />
+                         
+                    
+
                         <p id="robot" style="display: flex; align-items: center ;  justify-content: center;font-size:50px ;">
                             <?php
-                            $code  = $_GET['userInput'];
-                            $reward;
-                            $result = $conn->query("SELECT * FROM `user` WHERE pinCode = $code");
-                            $row = $result->fetch_assoc();
-                            $pinCode = $row["pinCode"];
-                            $reward = $row['reward'];
-
-                            echo $reward . " Bandwidth";
+                            $fiber = new Fiber(function (): void {
+                                $value = Fiber::suspend();
+                                $conn = mysqli_connect("localhost", "root", "", "scratcher");
+                                if ($conn === false) {
+                                    die("ERROR: Could not connect" . mysqli_connect_error());
+                                } else {
+                                    echo ("");
+                                }
+                                $code  = $_GET['userInput'];
+                                $result = $conn->query("SELECT * FROM `user` WHERE pinCode = $code");
+                                $row = $result->fetch_assoc();
+                                $reward = $row['reward'];
+                                echo $reward . " Bandwidth", PHP_EOL;
+                            });
+                            $value = $fiber->start();
+                            
+                            echo " <img id='redux' src='../img/sratcher.jpg' />", $value, PHP_EOL;
+                            
+                            $fiber->resume('');
                             ?>
-                        </p>
+                            </p>
+                        </>
                     </span>
                 </div>
                 <div style="padding-top: 21px;">
@@ -70,9 +84,9 @@
 
 
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <script src="npm_service.js"></script> 
+    <script src="npm_service.js"></script>
     <script src='http://code.jquery.com/jquery-3.6.1.min.js' type='text/javascript'></script>
-    <script src='jquery.eraser.js' ></script>
+    <script src='jquery.eraser.js'></script>
     <script type="text/javascript">
         $(function() {
             $('#redux').eraser({
@@ -83,15 +97,15 @@
         });
     </script>
     <script>
-        <?php 
+        <?php
         // $name =$_REQUEST['username'];
         // $identityId = $_REQUEST['identityId']
         ?>
 
-        function confirmInput(){
+        function confirmInput() {
             // var result = confirm("Is your name /'<?php $name ?> /', ID: /'<?php $identityId ?>/' ")
             var result = confirm("Is the input correct?")
-            if(result = false){
+            if (result = false) {
                 event.preventDefault();
             }
         }
