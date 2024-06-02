@@ -9,7 +9,7 @@
     <link rel="icon" href="../img/TODAY-LOGO.png">
 </head>
 <style>
-    .condition{
+    .condition {
         background-repeat: no-repeat;
         background-size: cover;
     }
@@ -17,18 +17,27 @@
 
 <body style="background-color: darkgray;display: flex;justify-content: center;align-items: center;  ">
     <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-    <script src="npm_service.js"></script>
+    <!-- <script src="npm_service.js"></script> -->
+    <script>
+        function data() {
+            const canvas = document.getElementById('custom_canvas')
+            const button = document.getElementById('button')
+
+            const jsConfetti = new JSConfetti({
+                canvas
+            })
+
+            setTimeout(() => {
+                jsConfetti.addConfetti()
+            }, 500)
+
+            button.addEventListener('click', () => {
+                jsConfetti.addConfetti()
+            })
+        }
+    </script>
     <script src='http://code.jquery.com/jquery-3.6.1.min.js' type='text/javascript'></script>
     <script src='jquery.eraser.js'></script>
-    <script type="text/javascript">
-        $(function() {
-            $('#redux').eraser({
-                progressFunction: function(p) {
-                    $('#progress').html(Math.round(p * 100) + '%');
-                }
-            });
-        });
-    </script>
     <?php
     // sleep(3);
     $conn = mysqli_connect("localhost", "root", "", "scratcher");
@@ -58,19 +67,18 @@
 
                     <span class="container">
                         <div class="condition" style="background-image: url('../img/sratcher_smaller.jpg');">
-                            <img id='redux' src='../img/sratcher_smaller.jpg'  loading="lazy" />
+                            <img id='redux' src='../img/sratcher.jpg' />
 
                         </div>
                         <p id="robot" style="display: flex; align-items: center ;  justify-content: center;font-size:50px ;">
                             <?php
-                            sleep(2);
+                            sleep(1);
                             $code  = $_GET['userInput'];
                             $reward;
                             $result = $conn->query("SELECT * FROM `user` WHERE pinCode = $code");
                             $row = $result->fetch_assoc();
                             $pinCode = $row["pinCode"];
                             $reward = $row['reward'];
-                            echo $reward . " Mbps";
                             ?>
                         </p>
 
@@ -98,12 +106,54 @@
         ?>
 
         function confirmInput() {
-            // var result = confirm("Is your name /'<?php $name ?> /', ID: /'<?php $identityId ?>/' ")
             var result = confirm("Is the input correct?")
             if (result = false) {
                 event.preventDefault();
             }
         }
+    </script>
+    <script type="text/javascript">
+        // $(function() {
+        //     $('#redux').eraser({
+        //         // completeRatio: .7,
+        //         // completeFunction: data(),
+        //         progressFunction: function(p) {
+        //             $('#progress').html(Math.round(p * 100) + '%');
+        //         }
+        //     });
+        // });
+        // $('#redux').eraser();
+
+        // $('#redux').eraser('disable');
+
+        $('#redux').eraser({
+            completeRatio: 70,
+            completeFunction: data()
+        });
+    </script>
+    <script>
+    </script>
+    <script>
+        const blurredImageDiv = document.querySelector(".blurred-img")
+        const img = blurredImageDiv.querySelector("img")
+
+        function loaded() {
+            blurredImageDiv.classList.add("loaded")
+        }
+
+        if (img.complete) {
+           console.log(
+
+           <?php  
+            echo $reward . " Mbps";
+            ?>
+           );
+        } else {
+            img.addEventListener("load", loaded)
+        }
+    </script>
+    <script type="text/javascript" src="./wScratchPad.min.js">
+
     </script>
 </body>
 
