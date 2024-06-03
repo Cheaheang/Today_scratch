@@ -39,8 +39,10 @@
                             <!-- <input  type="text"> -->
                             <select style="padding: 6px; border-radius: 12px; width: 8rem;margin: 0;" name="reward" , id="reward" name="" id="">
                                 <option value="10">10</option>
-                                <option value="10">15</option>
                                 <option value="20">20</option>
+                                <option value="30">30</option>
+                                <option value="40">40</option>
+                                <option value="50">50</option>
                             </select>
                         </div>
                         <div style="margin-left: 12px; display: flex;">
