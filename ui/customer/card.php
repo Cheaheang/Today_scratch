@@ -70,15 +70,17 @@
                             <img id='redux' src='../img/sratcher.jpg' />
 
                         </div>
+                        <?php
+                        $code  = $_GET['userInput'];
+                        $reward;
+                        $result = $conn->query("SELECT * FROM `user` WHERE pinCode = $code");
+                        $row = $result->fetch_assoc();
+                        ?>
                         <p id="robot" style="display: flex; align-items: center ;  justify-content: center;font-size:50px ;">
                             <?php
-                            sleep(1);
-                            $code  = $_GET['userInput'];
-                            $reward;
-                            $result = $conn->query("SELECT * FROM `user` WHERE pinCode = $code");
-                            $row = $result->fetch_assoc();
-                            $pinCode = $row["pinCode"];
+                            // $pinCode = $row["pinCode"];
                             $reward = $row['reward'];
+                            echo $reward . 'Mbps'
                             ?>
                         </p>
 
@@ -99,11 +101,20 @@
     </div>
 
 
-    <script>
-        <?php
-        // $name =$_REQUEST['username'];
-        // $identityId = $_REQUEST['identityId']
-        ?>
+    <script> 
+        setTimeout(() => {
+            const box = document.getElementById('robot');
+            // box.style.display = 'none';
+            box.style.visibility = 'hidden';
+
+        }, 100);
+
+
+        const el = document.getElementById('robot');
+
+        setTimeout(() => {
+            el.style.visibility = 'visible';
+        }, 1500); 
 
         function confirmInput() {
             var result = confirm("Is the input correct?")
@@ -113,23 +124,32 @@
         }
     </script>
     <script type="text/javascript">
-        // $(function() {
-        //     $('#redux').eraser({
-        //         // completeRatio: .7,
-        //         // completeFunction: data(),
-        //         progressFunction: function(p) {
-        //             $('#progress').html(Math.round(p * 100) + '%');
-        //         }
-        //     });
-        // });
-        // $('#redux').eraser();
+        $(function() {
+            $('#redux').eraser({
+                $data: '234',
+                size: 40, // define brush size (default value is 40)
+                completeRatio: .30, // allows to call function when a erased ratio is reached (between 0 and 1, default is .7 )
+                completeFunction: function data() {
+                    const canvas = document.getElementById('custom_canvas')
+                    const button = document.getElementById('button')
 
-        // $('#redux').eraser('disable');
+                    const jsConfetti = new JSConfetti({
+                        canvas
+                    })
 
-        $('#redux').eraser({
-            completeRatio: 70,
-            completeFunction: data()
-        });
+                    setTimeout(() => {
+                        jsConfetti.addConfetti()
+                    }, 500)
+
+                    button.addEventListener('click', () => {
+                        jsConfetti.addConfetti()
+                    })
+                },
+
+
+
+            })
+        })
     </script>
     <script>
     </script>
@@ -142,12 +162,12 @@
         }
 
         if (img.complete) {
-           console.log(
+            console.log(
 
-           <?php  
-            echo $reward . " Mbps";
-            ?>
-           );
+                <?php
+                echo $reward . " Mbps";
+                ?>
+            );
         } else {
             img.addEventListener("load", loaded)
         }
